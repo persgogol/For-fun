@@ -1,0 +1,19 @@
+import time
+import random
+
+def word_vortex(words):
+    """
+    Simulate a word vortex effect in the terminal.
+    
+    Args:
+    - words (list): List of words to display in the vortex.
+    """
+    iterations = 100
+    for _ in range(iterations):
+        random.shuffle(words)
+        print(" ".join(words))
+        time.sleep(0.1)
+
+if __name__ == "__main__":
+    word_list = ["GitHub", "Python", "Code", "Vortex", "Unusual", "Creative", "Innovation"]
+    word_vortex(word_list)
