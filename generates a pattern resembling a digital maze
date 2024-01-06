@@ -1,0 +1,28 @@
+def generate_maze(size):
+    """
+    Generate a maze-like pattern using ASCII art.
+    
+    Args:
+    - size (int): Size of the maze pattern.
+    """
+    maze = [[' ' for _ in range(size)] for _ in range(size)]
+    x, y = size // 2, size // 2
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    maze[x][y] = 'X'
+
+    while True:
+        for _ in range(100):
+            dx, dy = random.choice(directions)
+            if 0 <= x + dx < size and 0 <= y + dy < size:
+                x += dx
+                y += dy
+                maze[x][y] = ' '
+        if all(maze[i][j] == ' ' for i in range(size) for j in range(size)):
+            break
+
+    for row in maze:
+        print(''.join(row))
+
+if __name__ == "__main__":
+    import random
+    generate_maze(30)
