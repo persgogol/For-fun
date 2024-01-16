@@ -1,0 +1,22 @@
+import random
+import time
+
+def fireworks(num_fireworks):
+    """
+    Simulate a digital fireworks display in the console.
+    
+    Args:
+    - num_fireworks (int): Number of fireworks to display.
+    """
+    fireworks_chars = ['*', '+', 'x', 'o']
+
+    for _ in range(num_fireworks):
+        size = random.randint(5, 15)
+        delay = random.uniform(0.1, 0.5)
+        for _ in range(size):
+            print(random.choice(fireworks_chars), end=' ')
+            time.sleep(delay)
+        print()
+
+if __name__ == "__main__":
+    fireworks(10)
